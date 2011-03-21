@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- We are using Ivy Roundup ( http://code.google.com/p/ivyroundup/ ) for our 
+     dependencies. You can use your own ivysettings.xml file if you are using 
+     another repository. -->
+     
+<ivysettings>
+
+    <settings defaultResolver="chain.resolver" />
+    
+    <resolvers>
+  
+        <packager name="roundup" buildRoot="${user.home}/.ivy2/packager/build" resourceCache="${user.home}/.ivy2/packager/cache">
+           <ivy pattern="http://ivyroundup.googlecode.com/svn/trunk/repo/modules/[organisation]/[module]/[revision]/ivy.xml"/>
+           <artifact pattern="http://ivyroundup.googlecode.com/svn/trunk/repo/modules/[organisation]/[module]/[revision]/packager.xml"/>
+        </packager>
+ 
+		<chain name="chain.resolver" returnFirst="true">
+		    <resolver ref="roundup"/>
+		</chain>	      
+  </resolvers>
+  
+</ivysettings>
